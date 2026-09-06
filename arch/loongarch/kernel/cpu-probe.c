@@ -219,6 +219,10 @@ static void cpu_probe_common(struct cpuinfo_loongarch *c)
 		c->options |= LOONGARCH_CPU_LAM_BH;
 		elf_hwcap |= HWCAP_LOONGARCH_LAM_BH;
 	}
+	if (config & CPUCFG2_LAMCAS) {
+		c->options |= LOONGARCH_CPU_LAMCAS;
+		elf_hwcap |= HWCAP_LOONGARCH_LAMCAS;
+	}
 	if ((config & CPUCFG2_SCQ) && sc_q_is_sane()) {
 		c->options |= LOONGARCH_CPU_SCQ;
 		elf_hwcap |= HWCAP_LOONGARCH_SCQ;
